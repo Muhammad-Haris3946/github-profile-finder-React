@@ -1,0 +1,60 @@
+.profile-card {
+  background: #f8f9fa;
+  border-radius: 18px;
+  padding: 30px;
+  max-width: 850px;
+  margin: 20px auto;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.avatar {
+  width: 150px;
+  border-radius: 50%;
+  border: 6px solid #2b7cff;
+  margin-bottom: 15px;
+}
+
+.bio {
+  color: #555;
+  margin: 10px 0 15px;
+}
+
+.badges {
+  margin: 15px 0;
+}
+
+.badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin: 6px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.followers { background: #17c3b2; color: white; }
+.following { background: #ffc107; color: black; }
+.repos { background: #198754; color: white; }
+
+.profile-buttons {
+  margin-top: 15px;
+}
+
+.btn-dark {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: white;
+  border: 2px solid #2b7cff;
+  color: #2b7cff;
+  padding: 10px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+}

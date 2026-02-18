@@ -1,31 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import "./SearchBar.css";
 
 function SearchBar({ fetchUser }) {
   const [username, setUsername] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!username) return;
-    fetchUser(username);
-    setUsername("");
+    fetchUser(username.trim());
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
-      <div className="input-group">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter GitHub username..."
-          value={username}
-          onChange={(e) =>
-            setUsername(e.target.value)
-          }
-        />
-        <button className="btn btn-dark">
-          Search
-        </button>
-      </div>
+    <form className="search-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Search GitHub username..."
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <button type="submit">Search</button>
     </form>
   );
 }
