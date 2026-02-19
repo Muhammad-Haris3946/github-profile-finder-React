@@ -1,23 +1,39 @@
 import { useState } from "react";
-import "./SearchBar.css";
 
 function SearchBar({ fetchUser }) {
   const [username, setUsername] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchUser(username.trim());
+
+    const trimmedUsername = username.trim();
+
+    // 🚫 Prevent empty search
+    if (!trimmedUsername) {
+      alert("Please enter a GitHub username");
+      return;
+    }
+
+    fetchUser(trimmedUsername);
+
+    // ✅ clear input after search
+    setUsername("");
   };
 
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search GitHub username..."
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <button type="submit">Search</button>
+    <form onSubmit={handleSubmit} className="mb-4">
+      <div className="input-group input-group-lg shadow">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Enter GitHub username..."
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <button className="btn btn-primary px-4">
+          Search
+        </button>
+      </div>
     </form>
   );
 }

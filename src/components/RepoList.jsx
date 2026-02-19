@@ -1,17 +1,25 @@
 import RepoCard from "./RepoCard";
-import "./RepoList.css";
+import SkeletonCard from "./SkeletonCard";
 
-function RepoList({ repos }) {
+function RepoList({ repos, loading }) {
   return (
-    <div className="repo-section">
-      <h2>Repositories</h2>
+    <>
+      <h2 className="text-center mb-4">Repositories</h2>
 
-      <div className="repo-grid">
-        {repos.map((repo) => (
-          <RepoCard key={repo.id} repo={repo} />
-        ))}
+      <div className="row g-4">
+        {loading
+          ? Array(6).fill().map((_, i) => (
+              <div key={i} className="col-md-4">
+                <SkeletonCard />
+              </div>
+            ))
+          : repos.map(repo => (
+              <div key={repo.id} className="col-md-4">
+                <RepoCard repo={repo} />
+              </div>
+            ))}
       </div>
-    </div>
+    </>
   );
 }
 

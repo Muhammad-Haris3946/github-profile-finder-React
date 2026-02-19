@@ -1,7 +1,7 @@
 function Loader() {
   return (
-    <div style={{ textAlign: "center", marginTop: "30px", fontSize: "18px" }}>
-      Loading...
+    <div className="text-center my-4">
+      <div className="spinner-border text-primary"></div>
     </div>
   );
 }
